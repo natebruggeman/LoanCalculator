@@ -24,7 +24,7 @@ function calculateResults(e) {
         totalPayment.value = (monthly * calculatedPayments).toFixed(2);
         totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
     } else {
-        showError('Please check your numbers')
+        showError('Please fill all fields')
     }
 
 
@@ -48,6 +48,10 @@ function showError(error) {
     //placing error message at top of card
     card.insertBefore(errorDiv, heading);
 
-    window.setTimeout()
+    setTimeout(clearError, 4000);
 
+}
+
+function clearError() {
+    document.querySelector('.alert').remove();
 }
